@@ -54,7 +54,7 @@ P {
  
   <fieldset class="responsive">
     <table width="100%">
-      <th><img src="/img/logo.png" style="width: 65px;"></th>
+      <th><img src="/img/logo1.png" style="width: 65px;"></th>
       <th><P font-size= "10pt">PEMERINTAH DAERAH PROVINSI JAWABARAT</P>
       <P font-size= "10pt">DINAS PENDIDIKAN</P>
       <P>SMA NEGERI 2 GARUT</P>

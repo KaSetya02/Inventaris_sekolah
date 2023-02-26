@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Jun 2022 pada 05.23
+-- Waktu pembuatan: 26 Feb 2023 pada 22.00
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -42,7 +42,7 @@ CREATE TABLE `barangs` (
 --
 
 INSERT INTO `barangs` (`id`, `id_barang`, `kategori_id`, `nama_barang`, `satuan`, `jumlah`, `jumlah_rusak`) VALUES
-(43, 'BR0001', '5', 'CCTV', 'Buah', '10', '0');
+(43, 'BR0001', '5', 'CCTV', 'Buah', '22', '0');
 
 -- --------------------------------------------------------
 
@@ -318,7 +318,7 @@ CREATE TABLE `peminjaman` (
 --
 
 INSERT INTO `peminjaman` (`id_peminjaman`, `nama_peminjam`, `id_barang`, `jumlah_pinjam`, `tanggal_pinjam`, `tanggal_kembali`, `status`, `created_at`, `updated_at`) VALUES
-(26, 'Bagas', 'BR0001', '10', '2022-05-25', '2022-05-26', 'Belum Dikembalikan', NULL, NULL);
+(26, 'Bagas', 'BR0001', '10', '2022-05-25', '2022-05-26', 'Sudah Dikembalikan', NULL, NULL);
 
 --
 -- Trigger `peminjaman`
@@ -436,8 +436,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `username`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
-(6, 'Administrator', 'admin@gmail.com', NULL, 'admin', '$2y$10$sKboLn10o.XxZwmb7q4D5OAluJSCnI3E6mrPbcybNUrUiW5vESp66', 'admin', NULL, '2019-11-26 17:49:45', '2020-01-04 19:56:19'),
-(25, 'KaSetya Muhamad', 'arimuhamadsetiawan@gmail.com', NULL, 'admin@gmail.com', '$2y$10$2vQoAVpSrVg1sAKntqgHEec.PLGMgSHDHD9EO6pfk6TtRePh4tavG', 'rayon', 'n2VD43s16r76fqpvDZnLfjVG08G12UP0d04APalUXv0MWoQa1vqKFCWMq1z9', '2022-03-05 00:01:20', '2022-04-22 22:49:15'),
+(6, 'Administrator', 'admin@gmail.com', NULL, 'admin', '$2y$10$2vQoAVpSrVg1sAKntqgHEec.PLGMgSHDHD9EO6pfk6TtRePh4tavG', 'admin', NULL, '2019-11-26 17:49:45', '2020-01-04 19:56:19'),
+(25, 'KaSetya Muhamad', 'arimuhamadsetiawan@gmail.com', NULL, 'admin@gmail.com', '$2y$10$2vQoAVpSrVg1sAKntqgHEec.PLGMgSHDHD9EO6pfk6TtRePh4tavG', 'rayon', 'uWSXbZAwK4iZFQZLRLCEN0jifrKquV4o0WR7wFbKEnqd4CMVXtkgXcUz7OLC', '2022-03-05 00:01:20', '2022-04-22 22:49:15'),
 (26, 'PJ KaSetya', 'pj123@gmail.com', NULL, 'pj123456', '$2y$10$Xf3FUiUvQzuwo.SAYOGbL.fSD64DlgeC6Eir.S4UF3fEZd75RKQVy', 'pj', NULL, '2022-03-05 00:43:22', '2022-03-05 00:43:22'),
 (27, 'Bagas Setya', 'bagas@gmail.com', NULL, 'bagas123', '$2y$10$DjS6L0UCaqxzTSd741sEYui83rzM80KvsYUjplMjNQSUGEE7igPkS', 'bukan_pj', NULL, '2022-03-05 01:20:00', '2022-03-05 01:20:00');
 
@@ -564,7 +564,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT untuk tabel `input_ruangan`
@@ -606,7 +606,7 @@ ALTER TABLE `keranjang_peminjaman`
 -- AUTO_INCREMENT untuk tabel `keranjang_ruangan`
 --
 ALTER TABLE `keranjang_ruangan`
-  MODIFY `id_input_ruangan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_input_ruangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `keranjang_rusak_luar`
