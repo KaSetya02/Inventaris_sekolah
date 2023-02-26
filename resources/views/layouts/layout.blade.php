@@ -18,11 +18,12 @@
   <link href="{{url('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.css">
-
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link rel="shortcut icon" href="img/logo.png">
   <!-- Custom styles for this page -->
   <link href="{{url('assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
-  
+
 
 </head>
 
@@ -32,14 +33,14 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-book"></i>
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
+        <div class="sidebar-brand-icon">
+          <img src="/img/logo1.png" style="width: 43px;">
         </div>
-        <div class="sidebar-brand-text mx-3">Sarpras Wikrama</div>
+        <div class="sidebar-brand-text mx-1 {{ (request()->is('home*')) }}">SMA Negeri 2 Garut</div>
       </a>
 
       <!-- Divider -->
@@ -60,7 +61,6 @@
       <div class="sidebar-heading">
         Data - data
       </div>
-
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item {{ (request()->is('barang*')) ? 'active' : '' }} {{ (request()->is('jenis*')) ? 'active' : '' }} {{ (request()->is('ruangan*')) ? 'active' : '' }}{{ (request()->is('kategori*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -70,7 +70,7 @@
         <div id="collapseTwo" class="collapse {{ (request()->is('barang*')) ? 'show' : '' }} {{ (request()->is('jenis*')) ? 'show' : '' }} {{ (request()->is('ruangan*')) ? 'show' : '' }} {{ (request()->is('kategori*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Data Master</h6>
-            <a class="collapse-item {{ (request()->is('barang*')) ? 'active' : '' }}" href="{{url('barang')}}">Barang</a>
+            <a class="collapse-item {{ (request()->is('barang*')) ? 'active' : '' }}" href="{{url('barang')}}">Data Inventaris</a>
             <a class="collapse-item {{ (request()->is('ruangan*')) ? 'active' : '' }}" href="{{url('ruangan')}}">Ruangan</a>
             <a class="collapse-item {{ (request()->is('kategori*')) ? 'active' : '' }}" href="{{url('kategori')}}">Kategori</a>
           </div>
@@ -78,27 +78,7 @@
       </li>
 
 
-      <li class="nav-item {{ (request()->is('user*')) ? 'active' : '' }} {{ (request()->is('pj*')) ? 'active' : '' }} {{ (request()->is('rayon*')) ? 'active' : '' }} {{ (request()->is('bukan_pj*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse0" aria-expanded="true" aria-controls="collapse0">
-          <i class="fas fa-fw fa-user"></i>
-          <span>Data User</span>
-        </a>
-        <div id="collapse0" class="collapse {{ (request()->is('user*')) ? 'show' : '' }} {{ (request()->is('pj*')) ? 'show' : '' }} {{ (request()->is('rayon*')) ? 'show' : '' }} {{ (request()->is('bukan_pj*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Data User</h6>
-            <a class="collapse-item {{ (request()->is('user*')) ? 'active' : '' }}" href="{{url('user')}}">Admin</a>
-            <a class="collapse-item {{ (request()->is('rayon*')) ? 'active' : '' }}" href="{{url('rayon')}}">Pem. Rayon</a>
-            <a class="collapse-item {{ (request()->is('pj*')) ? 'active' : '' }}" href="{{url('pj')}}">Pj Ruangan</a>
-            <a class="collapse-item {{ (request()->is('bukan_pj*')) ? 'active' : '' }}" href="{{url('bukan_pj')}}">Bukan Pj</a>
-          </div>
-        </div>
-      </li>
-
-      {{-- <li class="nav-item {{ (request()->is('user*')) ? 'active' : '' }}">
-        <a class="nav-link" href="{{url('user')}}">
-          <i class="fas fa-fw fa-user"></i>
-          <span>User</span></a> --}}
-      </li>
+      
       <!-- Nav Item - Charts -->
       {{-- <li class="nav-item">
         <a class="nav-link" href="{{url('peminjaman')}}">
@@ -141,6 +121,26 @@
         </div>
       </li>
 
+       {{-- <li class="nav-item">
+        <a class="nav-link" href="{{url('masuk')}}">
+          <i class="fas fa-fw fa-rocket"></i>
+          <span>Barang Masuk</span></a>
+      </li> --}}
+
+       <li class="nav-item {{ (request()->is('keranjang_masuk*')) ? 'active' : '' }} {{ (request()->is('masuk*')) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-rocket"></i>
+          <span>Barang Masuk</span>
+        </a>
+        <div id="collapse4" class="collapse {{ (request()->is('keranjang_masuk*')) ? 'show' : '' }} {{ (request()->is('masuk*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Data Barang Masuk</h6>
+            <a class="collapse-item {{ (request()->is('keranjang_masuk*')) ? 'active' : '' }} " href="{{url('keranjang_masuk')}}">Keranjang Masuk</a>
+            <a class="collapse-item {{ (request()->is('masuk*')) ? 'active' : '' }}" href="{{url('masuk')}}">Data Masuk</a>
+          </div>
+        </div>
+      </li>
+
       {{-- <li class="nav-item">
         <a class="nav-link" href="{{url('keluar')}}">
           <i class="fas fa-fw fa-paper-plane"></i>
@@ -161,30 +161,10 @@
         </div>
       </li>
 
-      {{-- <li class="nav-item">
-        <a class="nav-link" href="{{url('masuk')}}">
-          <i class="fas fa-fw fa-rocket"></i>
-          <span>Barang Masuk</span></a>
-      </li> --}}
-
-       <li class="nav-item {{ (request()->is('keranjang_masuk*')) ? 'active' : '' }} {{ (request()->is('masuk*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-rocket"></i>
-          <span>Barang Masuk</span>
-        </a>
-        <div id="collapse4" class="collapse {{ (request()->is('keranjang_masuk*')) ? 'show' : '' }} {{ (request()->is('masuk*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Data Barang Masuk</h6>
-            <a class="collapse-item {{ (request()->is('keranjang_masuk*')) ? 'active' : '' }} " href="{{url('keranjang_masuk')}}">Keranjang Masuk</a>
-            <a class="collapse-item {{ (request()->is('masuk*')) ? 'active' : '' }}" href="{{url('masuk')}}">Data Masuk</a>
-          </div>
-        </div>
-      </li>
-
       <li class="nav-item {{ (request()->is('keranjang_rusak_ruangan*')) ? 'active' : '' }} {{ (request()->is('rusak_ruangan*')) ? 'active' : '' }}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseb" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-suitcase"></i>
-            <span>Barang Rusak Ruangan</span>
+            <span>B.Rusak Dalam Ruangan</span>
           </a>
           <div id="collapseb" class="collapse {{ (request()->is('keranjang_rusak_ruangan*')) ? 'show' : '' }}{{ (request()->is('rusak_ruangan*')) ? 'show' : '' }} " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -198,7 +178,7 @@
         <li class="nav-item {{ (request()->is('keranjang_rusak_luar*')) ? 'active' : '' }} {{ (request()->is('rusak_luar*')) ? 'active' : '' }}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsec" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-tasks"></i>
-            <span>Barang Rusak</span>
+            <span>B.Rusak Luar Ruangan</span>
           </a>
           <div id="collapsec" class="collapse {{ (request()->is('keranjang_rusak_luar*')) ? 'show' : '' }}{{ (request()->is('rusak_luar*')) ? 'show' : '' }} " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -226,8 +206,29 @@
           </div>
         </div>
       </li>
-                
-     
+
+      <li class="nav-item {{ (request()->is('user*')) ? 'active' : '' }} {{ (request()->is('pj*')) ? 'active' : '' }} {{ (request()->is('rayon*')) ? 'active' : '' }} {{ (request()->is('bukan_pj*')) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse0" aria-expanded="true" aria-controls="collapse0">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Data User</span>
+        </a>
+        <div id="collapse0" class="collapse {{ (request()->is('user*')) ? 'show' : '' }} {{ (request()->is('pj*')) ? 'show' : '' }} {{ (request()->is('rayon*')) ? 'show' : '' }} {{ (request()->is('bukan_pj*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Data User</h6>
+            <a class="collapse-item {{ (request()->is('user*')) ? 'active' : '' }}" href="{{url('user')}}">Admin</a>
+            <a class="collapse-item {{ (request()->is('rayon*')) ? 'active' : '' }}" href="{{url('rayon')}}">Kepala Sarpras</a> 
+            <a class="collapse-item {{ (request()->is('pj*')) ? 'active' : '' }}" href="{{url('pj')}}">PJ Ruangan</a>
+            <a class="collapse-item {{ (request()->is('bukan_pj*')) ? 'active' : '' }}" href="{{url('bukan_pj')}}">Bukan Pj</a>
+          </div>
+        </div>
+      </li>
+
+      {{-- <li class="nav-item {{ (request()->is('user*')) ? 'active' : '' }}">
+        <a class="nav-link" href="{{url('user')}}">
+          <i class="fas fa-fw fa-user"></i>
+          <span>User</span></a> --}}
+      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -295,8 +296,15 @@
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="group">
                 <div class="mr-2">
-                    {{ Carbon\Carbon::now()->format('l, d F Y')}}
+                    {{ Carbon\Carbon::now()->format('l, d F Y ')}}
                 </div>
+                 <div class="mr-2">
+                         <a href="https://time.is/Bandung" id="time_is_link" rel="nofollow" style="font-size:15px;text-decoration-line: none;">Bandung,</a>
+                         <span id="Bandung_z41c" style="font-size:15px"></span>
+                         <script src="//widget.time.is/t.js"></script>
+                         <script>time_is_widget.init({Bandung_z41c:{}});</script>
+            
+                    </div>
               </div>
           </form>
 
@@ -313,6 +321,11 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                 <!-- <a class="dropdown-item" href="">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <div class="dropdown-divider"></div> -->
                 <a class="dropdown-item" href="/change-password">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Change Password
@@ -337,7 +350,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             @yield('content')
-            
+
 
           </div>
 
@@ -351,7 +364,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; {{date('Y')}} &bull; SIMVENT SMA Negeri 2 Garut &bull; Created By <a href="/home" style="text-decoration-line: none;">Ari Muhamad Setiawan</a></span>
           </div>
         </div>
       </footer>
@@ -389,10 +402,10 @@
       </div>
     </div>
   </div>
-  
+
 
   <!-- Bootstrap core JavaScript-->
-  
+
   <script src="{{url('assets/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 

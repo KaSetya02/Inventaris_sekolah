@@ -36,7 +36,7 @@
              </div>
                     
              <div class="form-group">
-<label for="">Nama Toko</label>
+<label for="">Nama Toko/Pemasok</label>
                     <input type="text" name="nama_toko" class="form-control" required placeholder="Masukan Jumlah" required>
                 
              </div>

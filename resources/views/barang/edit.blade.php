@@ -11,7 +11,7 @@
                   <div class="form-group">
                       <label for="">Kode Barang</label>
                       <input type="hidden" name="id" value="{{$barang2->id_barang}}">
-                    <input type="text" name="id_barang" class="form-control" value="{{$barang2->id_barang}}" required placeholder="Masukan Nama">
+                    <input type="text" name="id_barang" class="form-control" value="{{$barang2->id_barang}}" required placeholder="Masukan Nama" readonly>
                   </div>
                   <div class="form-group">
                       <label for="">Kategori</label>

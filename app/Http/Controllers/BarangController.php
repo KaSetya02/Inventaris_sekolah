@@ -33,6 +33,12 @@ class BarangController extends Controller
 
     public function store(Request $request)
     {
+        $validator  = $request->validate([
+            'id_barang'     => 'required|unique:barangs|min:5',
+            'nama_barang'   => 'required',
+            'satuan'        => 'required',
+            'jumlah'        => 'required'
+        ]);
         DB::table('barangs')->insert([
             'id_barang' => $request->id_barang,
             'kategori_id'=>$request->kategori_id,

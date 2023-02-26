@@ -69,7 +69,7 @@
         <form action="/keranjang_peminjaman/store" method="post">
             @csrf
           <div class="form-group">
-              <label for="">Nama Peminjaman</label>
+              <label for="">Nama Peminjam</label>
               <input type="text" name="nama_peminjaman" class="form-control"  required>
           </div>
           <div class="form-group">

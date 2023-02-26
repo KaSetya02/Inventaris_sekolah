@@ -15,7 +15,7 @@
             <tr>
                   <th>No</th>
                   <th>Ruangan</th>
-                  <th>Pembimbing</th>
+                  <th>Kepala Sarpras</th>
                   <th>Pj Ruangan</th>
                   <th>Opsi</th>
             </tr>
@@ -58,9 +58,9 @@
               <input type="text" name="ruangan" class="form-control"  required>
           </div>
           <div class="form-group">
-              <label for="">Pembimbing</label>
+              <label for="">Kepala Sarpras</label>
               <select name="id_pembimbing"  class="myselect" id="" style="width:100%">
-                <option value="" selected disabled>Pilih Pembimbing</option>
+                <option value="" selected disabled>Pilih Kepala Sarpras</option>
                 @foreach ($pembimbing as $a)
                     <option value="{{$a->id}}">{{$a->name}}</option>
                 @endforeach

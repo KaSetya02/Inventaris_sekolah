@@ -30,7 +30,7 @@
             <td>Rp.{{$masuk->harga_total}}</td>
         </tr>
         <tr>
-            <td>Nama Toko</td>
+            <td>Nama Toko/Pemasok</td>
             <td>:</td>
             <td>{{$masuk->nama_toko}}</td>
         </tr>

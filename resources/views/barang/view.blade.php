@@ -48,6 +48,16 @@
     <button class="btn btn-success" data-toggle="modal" data-target="#tambah">Tambah Data</button>
       <br>
       <br>
+       @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+      <br>
       <table id="example" class="table table-bordered js-basic-example dataTable" cellspacing="0">
           <thead>
             <tr>
@@ -79,6 +89,7 @@
         <div class="modal-body">
         <form action="{{ route('barang.store') }}" method="post">
             @csrf
+
           <div class="form-group">
               <label for="">Kode Barang</label>
               <input type="text" name="id_barang" class="form-control"  required>

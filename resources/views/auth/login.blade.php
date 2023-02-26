@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Aplikasi Sarpras - Login</title>
+  <title>SIMVENT Politeknik TEDC Bandung - Login</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{url('assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet')}}" type="text/css">
@@ -17,17 +17,18 @@
 
   <!-- Custom styles for this template-->
   <link href="{{url('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+ 
+  <link rel="shortcut icon" href="img/logo.png">
 </head>
 
-<body class="bg-gradient-dark">
+<body class="bg-primary">
 
   <div class="container">
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
-      <div class="col-xl-5 col-lg-12 col-md-9">
+      <div class="col-xl-6 col-lg-12 col-md-9" style="margin-top: 50px;">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
@@ -36,13 +37,20 @@
              
               <div class="col-lg-12">
                 <div class="p-5">
+
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Selamat Datang</h1>
+                     <img src="img/logo1.png" alt="" width="50px" style="margin-bottom: 7px;">
+                    <h1 class="h4 text-gray-900 mb-4">Login SIMVENT</h1>
                   </div>
+                  @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                   <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group">
-                      <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="Masukkan username" required autocomplete="email" autofocus>
+                      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Enter Email" required autocomplete="email" autofocus>
                     </div>
 
                     @error('email')
@@ -50,7 +58,7 @@
                     @enderror
 
                     <div class="form-group">
-                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Masukan Password" required autocomplete="current-password">
+                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Enter Password" required autocomplete="current-password">
                     </div>
 
                     @error('password')
@@ -58,18 +66,18 @@
                     @enderror
 
                     
-                    <button type="submit" class="btn btn-dark btn-user btn-block">
+                    <button type="submit" class="btn btn-primary btn-user btn-block">
                       {{ __('Login') }}
                     </button>
                     
                   </form>
                   <hr>
-                  <!-- <div class="text-center">
-                    <a class="small" href="forgot-password.html">Forgot Password?</a>
-                  </div> -->
-                  <!-- <div class="text-center">
-                    <a class="small" href="register.html">Create an Account!</a>
-                  </div> -->
+                  <div class="text-center">
+                    <a class="small" href="{{ route('password.request') }}" style="text-decoration:none;">Forgot Password?</a>
+                  </div>
+                  <div class="text-center">
+                    <a class="small" href="register" style="text-decoration:none;">Create an Account!</a>
+                  </div>
                 </div>
               </div>
             </div>

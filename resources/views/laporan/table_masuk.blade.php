@@ -4,6 +4,7 @@
                   <th>Barang</th>
                   <th>Jumlah</th>
                   <th>Tanggal Masuk</th>
+                  <th>Nama Toko/Pemasok</th>
             </tr>
           </thead>
           <tbody>
@@ -12,6 +13,7 @@
                   <td>{{$m->nama_barang}}</td>
                   <td>{{$m->jumlah_asup}}</td>
                   <td>{{$m->tanggal_masuk}}</td>
+                  <td>{{$m->nama_toko}}</td>
                   </tr>
               @endforeach
           </tbody>
